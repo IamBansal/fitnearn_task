@@ -1,0 +1,4 @@
+{
+  "localization_appBar_title": "Localización",
+  "demo":"Este fragmento de texto es para probar la función de internacionalización y localización de la aplicación Flutter.\nAl presionar los botones que se indican a continuación, puede cambiar el idioma solo para esta pantalla."
+}

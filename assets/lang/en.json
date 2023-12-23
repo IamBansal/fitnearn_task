@@ -1,0 +1,4 @@
+{
+  "localization_appBar_title": "Localization",
+  "demo":"This text snippet is for the testing of the internationalization and localization feature of the flutter application.\nOn pressing the buttons given below, you can change the language only for this screen."
+}
