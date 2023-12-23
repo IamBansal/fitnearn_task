@@ -1,16 +1,16 @@
-# fitnearn
+# fitnearn_task
 
-A new Flutter project.
+A basic news application in flutter with various functionalities and tools.
+- State Management using Provider
+- API calls using http
+- Authentication using Firebase
+- Local storage with SQFLite and SharedPref
+- Multilingual support
+- Platform-specific features (camera, gallery)
+- Location support using Geolocator
+- Navigation
+- Attractive UI
+- Stateful widget lifecycles
+- UI Test cases
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- API used -- https://newsapi.org/
