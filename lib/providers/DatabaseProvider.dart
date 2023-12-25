@@ -1,6 +1,6 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'Recommendation.dart';
+import '../model/Recommendation.dart';
 
 class DatabaseProvider {
   late Database _database;

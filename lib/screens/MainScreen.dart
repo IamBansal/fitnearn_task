@@ -1,15 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fitnearn/LocalizationScreen.dart';
-import 'package:fitnearn/LoginScreen.dart';
-import 'package:fitnearn/MyNews.dart';
-import 'package:fitnearn/ProfileScreen.dart';
+import 'package:fitnearn/screens/drawer_screens/LocalizationScreen.dart';
+import 'package:fitnearn/screens/auth/LoginScreen.dart';
+import 'package:fitnearn/screens/drawer_screens/MyNews.dart';
+import 'package:fitnearn/screens/drawer_screens/ProfileScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dart:io';
-import 'DataProvider.dart';
-import 'DatabaseProvider.dart';
-import 'ImagePathHandler.dart';
-import 'Recommendation.dart';
+import '../providers/DataProvider.dart';
+import '../providers/DatabaseProvider.dart';
+import '../providers/ImagePathHandler.dart';
+import '../model/Recommendation.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

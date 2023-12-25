@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'ImagePathHandler.dart';
+import '../../providers/ImagePathHandler.dart';
 import 'LoginScreen.dart';
-import 'MainScreen.dart';
+import '../MainScreen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});

@@ -62,19 +62,3 @@ class LocaleCont extends GetxController {
 const String ENGLISH = "en";
 const String SPANISH = "es";
 const String RUSSIAN = "ru";
-
-class Language {
-  final String name;
-  final String flag;
-  final String languageCode;
-
-  Language(this.name, this.flag, this.languageCode);
-
-  static List<Language> languageList() {
-    return <Language>[
-      Language("English", "US", "en"),
-      Language("Русский", 'RU', "ru"),
-      Language("Española", 'AR', "es"),
-    ];
-  }
-}

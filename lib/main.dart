@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'DataProvider.dart';
-import 'LoginScreen.dart';
-import 'MainScreen.dart';
+import 'providers/DataProvider.dart';
+import 'screens/auth/LoginScreen.dart';
+import 'screens/MainScreen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'app_localizations.dart';
+import 'providers/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

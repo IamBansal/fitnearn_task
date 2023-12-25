@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'DatabaseProvider.dart';
-import 'MainScreen.dart';
-import 'Recommendation.dart';
+import '../../providers/DatabaseProvider.dart';
+import '../MainScreen.dart';
+import '../../model/Recommendation.dart';
 
 class MyNews extends StatefulWidget {
   const MyNews({super.key});

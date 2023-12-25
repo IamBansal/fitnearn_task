@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
-import 'ImagePathHandler.dart';
-import 'MainScreen.dart';
+import '../../providers/ImagePathHandler.dart';
+import '../MainScreen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

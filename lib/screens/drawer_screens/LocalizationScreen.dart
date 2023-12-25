@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'app_localizations.dart';
+import '../../model/Language.dart';
+import '../../providers/app_localizations.dart';
 
 class LocalizationScreen extends StatefulWidget {
   const LocalizationScreen({super.key});
