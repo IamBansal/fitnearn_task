@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 import 'ImagePathHandler.dart';
 import 'MainScreen.dart';
@@ -295,7 +297,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   suffixIcon: IconButton(
                     icon: const Icon(Icons.location_on_outlined, color: Color(0xFF5271EF)),
                     onPressed: () {
-                      // _getLocation();
+                      _getCurrentPosition();
                     },
                   ),
                 ),
@@ -547,6 +549,69 @@ class _ProfileScreenState extends State<ProfileScreen> {
         _dobController.text = '${selectedDate.year}-${selectedDate.month}-${selectedDate.day}';
       });
     }
+  }
+
+  Position? _currentPosition;
+
+  Future<bool> _handleLocationPermission() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+              'Location services are disabled. Please enable the services')));
+      return false;
+    }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Location permissions are denied')));
+        return false;
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+              'Location permissions are permanently denied, we cannot request permissions.')));
+      return false;
+    }
+    return true;
+  }
+
+  Future<void> _getCurrentPosition() async {
+    final hasPermission = await _handleLocationPermission();
+
+    if (!hasPermission) return;
+    await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
+        .then((Position position) {
+      setState(() => _currentPosition = position);
+      _getAddressFromLatLng(_currentPosition!);
+    }).catchError((e) {
+      debugPrint(e);
+    });
+  }
+
+  Future<void> _getAddressFromLatLng(Position position) async {
+    await GeocodingPlatform.instance.placemarkFromCoordinates(
+        _currentPosition!.latitude, _currentPosition!.longitude, localeIdentifier: 'en')
+        .then((placeMarks) {
+      if(placeMarks.isNotEmpty) {
+        Placemark place = placeMarks[0];
+        setState(() {
+          _addressController.text =
+          '${place.street}, ${place.subLocality}, ${place.subAdministrativeArea}';
+        });
+      }
+    }).catchError((e) {
+      setState(() {
+        _addressController.text = 'Unable to get the address';
+      });
+      debugPrint(e.toString());
+    });
   }
 
 }
